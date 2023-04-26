@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -38,11 +38,11 @@ const Navbar = () => {
         </div>
         <ul className="hidden lg:flex lg:items-center lg:justify-end grow mr-4">
           <li>
-            <a
+            <Link
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-4 py-2"
-              href="#">
+              to="/users">
               Users
-            </a>
+            </Link>
           </li>
           <li>
             <a
