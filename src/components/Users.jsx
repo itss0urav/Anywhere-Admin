@@ -1,26 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const people = [
-  {
-    name: "John Doe",
-    title: "Front-end Developer",
-    department: "Engineering",
-    email: "john@devui.com",
-    role: "Developer",
-    image:
-      "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
-  },
-  {
-    name: "Jane Doe",
-    title: "Back-end Developer",
-    department: "Engineering",
-    email: "jane@devui.com",
-    role: "CTO",
-    image:
-      "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
-  },
-];
+
 const Users = () => {
   const [users, setUsers] = useState([]);
 
@@ -28,9 +9,7 @@ const Users = () => {
     const response = await axios.get("http://localhost:5000/user");
     response &&
       setUsers(
-        response.data.map((user) => {
-          return { ...user, role: "user" };
-        })
+        response.data
       );
     console.log(response.data);
   }
@@ -46,6 +25,19 @@ const Users = () => {
     } catch (err) {
       console.log(err);
     }
+  }
+
+
+  async function makeModerator(userObj){
+
+    const response = await axios.post("http://localhost:5000/moderator",userObj)
+    response && getUsers()
+  
+  }
+  async function deModUser(userObj){
+
+    const response = await axios.delete(`http://localhost:5000/moderator/${userObj?.email}`)
+    response && getUsers()
   }
   return (
     <>
@@ -137,6 +129,9 @@ const Users = () => {
                             Delete
                           </button>
                           <button className="text-red-600">BanUser</button>
+                          <button className="text-white bg-blue-500 rounded px-3 py-1" onClick={() => {
+                            person?.role === "moderator" ? deModUser({email:person?.email}) :
+                            makeModerator({email:person?.email})}}>{person?.role === "moderator" ? "Unmod" : "Make mod"}</button>
                         </td>
                       </tr>
                     ))}
