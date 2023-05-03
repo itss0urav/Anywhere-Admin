@@ -131,7 +131,7 @@ const Users = () => {
                           <button className="text-red-600">BanUser</button>
                           <button className="text-white bg-blue-500 rounded px-3 py-1" onClick={() => {
                             person?.role === "moderator" ? deModUser({email:person?.email}) :
-                            makeModerator({email:person?.email})}}>{person?.role === "moderator" ? "Unmod" : "Make mod"}</button>
+                            makeModerator({email:person?.email})}}>{person?.role === "moderator" ? "Remove Mod" : "Make mod"}</button>
                         </td>
                       </tr>
                     ))}
