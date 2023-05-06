@@ -121,13 +121,15 @@ const Users = () => {
                         <td className="px-4 flex gap-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <button
                             onClick={() => deleteUser(person._id)}
-                            className="text-red-600 dark:text-gray-300 hover:text-indigo-600"
+                            className="text-white bg-red-500 rounded px-3 py-1 hover:bg-red-600 "
                           >
                             Delete
                           </button>
-                          <button className="text-red-600">BanUser</button>
+                          <button className="text-white bg-red-500 rounded px-3 py-1 hover:bg-red-600">
+                            Ban
+                          </button>
                           <button
-                            className="text-white bg-blue-500 rounded px-3 py-1"
+                            className="text-white bg-blue-500 rounded px-3 py-1 hover:bg-blue-600"
                             onClick={() => {
                               person?.role === "moderator"
                                 ? deModUser({ email: person?.email })

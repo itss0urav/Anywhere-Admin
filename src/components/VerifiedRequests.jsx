@@ -112,7 +112,7 @@ const VerifiedRequests = () => {
                           </a>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          <button className="px-3 py-0.5 border-indigo-600 border text-indigo-600 rounded-md">
+                          <button className="px-3 py-0.5 border-indigo-600 border text-blue-600 rounded-md hover:bg-blue-600 hover:text-white">
                             Approved
                           </button>
                         </td>
