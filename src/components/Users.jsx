@@ -1,16 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
 const Users = () => {
   const [users, setUsers] = useState([]);
 
   async function getUsers() {
     const response = await axios.get("http://localhost:5000/user");
-    response &&
-      setUsers(
-        response.data
-      );
+    response && setUsers(response.data);
     console.log(response.data);
   }
   useEffect(() => {
@@ -21,40 +17,36 @@ const Users = () => {
     try {
       console.log("first");
       const response = await axios.delete(`http://localhost:5000/user/${id}`);
-      response && getUsers()
+      response && getUsers();
     } catch (err) {
       console.log(err);
     }
   }
 
-
-  async function makeModerator(userObj){
-
-    const response = await axios.post("http://localhost:5000/moderator",userObj)
-    response && getUsers()
-  
+  async function makeModerator(userObj) {
+    const response = await axios.post(
+      "http://localhost:5000/moderator",
+      userObj
+    );
+    response && getUsers();
   }
-  async function deModUser(userObj){
-
-    const response = await axios.delete(`http://localhost:5000/moderator/${userObj?.email}`)
-    response && getUsers()
+  async function deModUser(userObj) {
+    const response = await axios.delete(
+      `http://localhost:5000/moderator/${userObj?.email}`
+    );
+    response && getUsers();
   }
   return (
     <>
       <section className="container px-4 mx-auto py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-medium text-gray-800 dark:text-white">
+            <h2 className="text-2xl font-medium text-white dark:text-white">
               Users
             </h2>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
+            <p className="mt-1 text-sm text-gray-300 dark:text-gray-300">
               Entire list of users
             </p>
-          </div>
-          <div>
-            <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-sm font-semibold leading-7 text-white hover:bg-indigo-500 ">
-              Add
-            </button>
           </div>
         </div>
         <div className="flex flex-col mt-6">
@@ -66,24 +58,28 @@ const Users = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
                         <span>Username</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
                         Email
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
                         Status
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
                         Role
                       </th>
                       <th scope="col" className="relative py-3.5 px-4">
@@ -125,13 +121,23 @@ const Users = () => {
                         <td className="px-4 flex gap-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <button
                             onClick={() => deleteUser(person._id)}
-                            className="text-red-600 dark:text-gray-300 hover:text-indigo-600">
+                            className="text-red-600 dark:text-gray-300 hover:text-indigo-600"
+                          >
                             Delete
                           </button>
                           <button className="text-red-600">BanUser</button>
-                          <button className="text-white bg-blue-500 rounded px-3 py-1" onClick={() => {
-                            person?.role === "moderator" ? deModUser({email:person?.email}) :
-                            makeModerator({email:person?.email})}}>{person?.role === "moderator" ? "Remove Mod" : "Make mod"}</button>
+                          <button
+                            className="text-white bg-blue-500 rounded px-3 py-1"
+                            onClick={() => {
+                              person?.role === "moderator"
+                                ? deModUser({ email: person?.email })
+                                : makeModerator({ email: person?.email });
+                            }}
+                          >
+                            {person?.role === "moderator"
+                              ? "Remove Mod"
+                              : "Make mod"}
+                          </button>
                         </td>
                       </tr>
                     ))}
