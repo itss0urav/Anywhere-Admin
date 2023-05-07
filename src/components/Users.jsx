@@ -82,6 +82,12 @@ const Users = () => {
                       >
                         Role
                       </th>
+                      <th
+                        scope="col"
+                        className="text-left px-20 py-3.5 text-sm font-normal  rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Actions
+                      </th>
                       <th scope="col" className="relative py-3.5 px-4">
                         <span className="sr-only">Edit</span>
                       </th>
