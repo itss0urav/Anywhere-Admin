@@ -6,6 +6,7 @@ import Posts from "./components/Posts"
 import {SinglePostView} from "./components/SinglePostView"
 import VerificationRequests from "./components/VerificationRequests"
 import VerifiedRequests from "./components/VerifiedRequests"
+import Feedbacks from "./components/Feedbacks"
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/postDetails/:postId" element={<SinglePostView />}/>
             <Route path="/verificationRequests" element={<VerificationRequests />}/>
             <Route path="/verifiedRequests" element={<VerifiedRequests />}/>
+            <Route path="/feedbacks" element={<Feedbacks />}/>
           </Route>
         </Routes>
         </BrowserRouter>

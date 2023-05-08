@@ -71,6 +71,14 @@ const Navbar = () => {
               Verified requests
             </Link>
           </li>
+          <li>
+            <Link
+              className="text-white hover:text-gray-100 px-4 py-2"
+              to="/feedbacks"
+            >
+              Feedbacks
+            </Link>
+          </li>
         </ul>
         
         <div className="hidden lg:block">
