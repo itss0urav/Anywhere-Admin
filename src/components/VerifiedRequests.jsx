@@ -21,10 +21,10 @@ const VerifiedRequests = () => {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-medium text-white dark:text-white">
-              Employees
+              Verified Requests
             </h2>
             <p className="mt-1 text-sm text-gray-300 dark:text-gray-300">
-            This is a list of all the approved verification requests from the users.
+            This is a list of all the verified requests from the users.
             </p>
           </div>
         </div>
