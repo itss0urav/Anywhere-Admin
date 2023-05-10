@@ -8,7 +8,9 @@ const INITIAL_STATE = {
 export const AdminContext = createContext(INITIAL_STATE);
 
 const AdminUserContextProvider = ({ children }) => {
-  const [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("anywhere-admin")));
+  const [admin, setAdmin] = useState(
+    JSON.parse(localStorage.getItem("anywhere-admin"))
+  );
 
   return (
     <AdminContext.Provider value={{ admin, setAdmin }}>

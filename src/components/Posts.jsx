@@ -45,9 +45,10 @@ const Posts = () => {
       <div className="flex justify-end px-20 relative">
         <h1
           className={`text-white border rounded-md px-2 py-1 cursor-pointer ${
-            showReportedPosts && "bg-gray-600"
+            showReportedPosts && "bg-red-600"
           }`}
-          onClick={() => setShowReportedPosts((p) => !p)}>
+          onClick={() => setShowReportedPosts((p) => !p)}
+        >
           Reported posts
         </h1>
       </div>
@@ -56,7 +57,8 @@ const Posts = () => {
           {reportedPosts.map((report) => (
             <div
               className="max-w-xs w-full shadow-md p-3"
-              onClick={() => handleModalOpen(report)}>
+              onClick={() => handleModalOpen(report)}
+            >
               <div className="relative h-40">
                 <img
                   src={
@@ -112,7 +114,8 @@ const Posts = () => {
         <div
           className={`absolute grid place-content-center bg-modalBackground h-screen top-0 w-full ${
             !openModal && "hidden"
-          }`}>
+          }`}
+        >
           <div className="h-[500px] w-[600px] bg-white rounded-md py-5 px-5 overflow-y-scroll">
             <div className="flex justify-between items-center">
               <h1 className="text-red-600">Reported post</h1>
@@ -127,7 +130,7 @@ const Posts = () => {
               </h2>
               <img
                 src={selectedReportedPost.postId.imageUrl}
-                alt="reportedPost"
+                alt="No Image for this post"
               />
               <p>{selectedReportedPost.postId.description}</p>
             </div>
@@ -141,7 +144,8 @@ const Posts = () => {
               </div>
               <button
                 onClick={() => deletePost(selectedReportedPost.postId._id)}
-                className="self-end text-red-600 border border-red-600 px-2 rounded-md hover:bg-red-100">
+                className="self-end text-red-600 border border-red-600 px-2 rounded-md hover:bg-red-100"
+              >
                 Delete
               </button>
             </div>

@@ -9,12 +9,9 @@ const Feedbacks = () => {
     response && setFeedbacks(response.data);
   }
 
-
-
-
-  async function deleteFeedback(id){
-    const response = await axios.delete(`http://localhost:5000/feedback/${id}`)
-    response && getFeedBacks()
+  async function deleteFeedback(id) {
+    const response = await axios.delete(`http://localhost:5000/feedback/${id}`);
+    response && getFeedBacks();
   }
   useEffect(() => {
     getFeedBacks();

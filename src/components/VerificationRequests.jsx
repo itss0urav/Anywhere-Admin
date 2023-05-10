@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const VerificationRequests = () => {
   const [requests, setRequests] = useState([]);
   const [updateToggler, setUpdateToggler] = useState(false);
-  const approveRequest = async function ({id, userId}) {
+  const approveRequest = async function ({ id, userId }) {
     const updateObj = {
       _id: id,
       isApproved: true,
@@ -15,10 +15,10 @@ const VerificationRequests = () => {
     );
     response && getRequets();
 
-    await axios.patch("http://localhost:5000/user",{
+    await axios.patch("http://localhost:5000/user", {
       userId,
-      isVerified:true
-    })
+      isVerified: true,
+    });
   };
 
   const getRequets = async function () {
@@ -131,7 +131,12 @@ const VerificationRequests = () => {
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                           <button
-                            onClick={() => approveRequest({id:person._id, userId:person?.userId})}
+                            onClick={() =>
+                              approveRequest({
+                                id: person._id,
+                                userId: person?.userId,
+                              })
+                            }
                             className="px-3 py-0.5 border-indigo-600 border text-blue-600 rounded-md hover:bg-blue-600 hover:text-white"
                           >
                             Approve
