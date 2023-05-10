@@ -18,9 +18,9 @@ const Feedbacks = () => {
       <div className="mt-5">
         {feedbacks.map((feedback) => (
           <div className="border border-gray-700 px-4 py-3 rounded-md">
-            <h1>Username : {feedback?.username}</h1>
+            <h1>Name : {feedback?.username}</h1>
             <h1>Email : {feedback?.email}</h1>
-            <p>Description : {feedback?.description}</p>
+            <p>Message : {feedback?.description}</p>
             <p>Rating : {feedback?.rating}</p>
             <button
               onClick={() => deleteUser(person._id)}
