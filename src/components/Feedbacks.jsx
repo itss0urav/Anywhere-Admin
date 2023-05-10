@@ -8,6 +8,14 @@ const Feedbacks = () => {
     const response = await axios.get("http://localhost:5000/feedback");
     response && setFeedbacks(response.data);
   }
+
+
+
+
+  async function deleteFeedback(id){
+    const response = await axios.delete(`http://localhost:5000/feedback/${id}`)
+    response && getFeedBacks()
+  }
   useEffect(() => {
     getFeedBacks();
   }, []);
@@ -23,7 +31,7 @@ const Feedbacks = () => {
             <p>Message : {feedback?.description}</p>
             <p>Rating : {feedback?.rating}</p>
             <button
-              onClick={() => deleteUser(person._id)}
+              onClick={() => deleteFeedback(feedback._id)}
               className="text-white bg-red-800 rounded px-3 py-1 hover:bg-red-500 "
             >
               Delete
