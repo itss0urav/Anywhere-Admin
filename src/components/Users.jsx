@@ -37,13 +37,12 @@ const Users = () => {
     response && getUsers();
   }
 
-
-  async function banUnBanUser({userId, banStatus}){
-    const response = await axios.patch("http://localhost:5000/user",{
+  async function banUnBanUser({ userId, banStatus }) {
+    const response = await axios.patch("http://localhost:5000/user", {
       userId,
-      isBanned:banStatus
-    })
-    response && getUsers()
+      isBanned: banStatus,
+    });
+    response && getUsers();
   }
   return (
     <>
@@ -141,8 +140,14 @@ const Users = () => {
                             Delete
                           </button>
                           <button
-                          onClick={() => banUnBanUser({userId:person._id,banStatus:!person.isBanned })}
-                          className="text-white bg-red-500 rounded px-3 py-1 hover:bg-red-600">
+                            onClick={() =>
+                              banUnBanUser({
+                                userId: person._id,
+                                banStatus: !person.isBanned,
+                              })
+                            }
+                            className="text-white bg-red-500 rounded px-3 py-1 hover:bg-red-600"
+                          >
                             {person.isBanned ? "Unban" : "Ban"}
                           </button>
                           <button

@@ -24,7 +24,7 @@ const VerifiedRequests = () => {
               Verified Requests
             </h2>
             <p className="mt-1 text-sm text-gray-300 dark:text-gray-300">
-            This is a list of all the verified requests from the users.
+              This is a list of all the verified requests from the users.
             </p>
           </div>
         </div>

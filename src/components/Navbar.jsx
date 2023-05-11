@@ -5,26 +5,34 @@ import { AdminContext } from "../context/AdminContext";
 const Navbar = () => {
   const { admin, setAdmin } = useContext(AdminContext);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!admin) {
       navigate("/auth/login");
     }
   });
-  
+
   const handleLogOut = function () {
     localStorage.removeItem("anywhere-admin");
     setAdmin(null);
   };
-  
+
   return (
     <div className="bg-gray-900">
       <nav className="relative px-8 py-4 flex justify-between items-center border-b border-gray-800">
-        <Link to="/" className="text-lg font-bold leading-none flex items-center space-x-4">
-          <img src="https://media.discordapp.net/attachments/1070984839077036052/1070994572068524032/ALUT.png" width="45" height="27" alt="Anywhere logo" />
+        <Link
+          to="/"
+          className="text-lg font-bold leading-none flex items-center space-x-4"
+        >
+          <img
+            src="https://media.discordapp.net/attachments/1070984839077036052/1070994572068524032/ALUT.png"
+            width="45"
+            height="27"
+            alt="Anywhere logo"
+          />
           <span className="text-white">Anywhere Admin Panel</span>
         </Link>
-        
+
         <div className="lg:hidden">
           <button className="navbar-burger flex items-center text-gray-400 p-3">
             <svg
@@ -37,7 +45,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        
+
         <ul className="hidden lg:flex lg:items-center lg:justify-end grow mr-4">
           <li>
             <Link
@@ -80,7 +88,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        
+
         <div className="hidden lg:block">
           <span className="text-blue-400 mr-4 ">{admin?.username}</span>
           <button
