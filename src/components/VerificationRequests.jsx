@@ -57,13 +57,13 @@ const VerificationRequests = () => {
                         scope="col"
                         className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        <span>Email</span>
+                        <span>Name & Email</span>
                       </th>
                       <th
                         scope="col"
                         className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Company
+                        Website & Company Name
                       </th>
 
                       <th
@@ -93,14 +93,14 @@ const VerificationRequests = () => {
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                     {requests.map((person) => (
                       <tr
-                        key={person.name}
+                        key={person.fullName}
                         className="divide-x divide-gray-200"
                       >
                         <td className="py-4 px-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                {person.name}
+                                {person.fullName}
                               </div>
                               <div className="text-sm text-gray-500 dark:text-gray-300">
                                 {person.email}
