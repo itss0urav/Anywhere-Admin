@@ -49,7 +49,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex lg:items-center lg:justify-end grow mr-4">
           <li>
             <Link
-              className="text-white hover:text-gray-100 px-4 py-2"
+              className="text-white hover:text-gray-500 px-4 py-2"
               to="/users"
             >
               Users
@@ -57,7 +57,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              className="text-white hover:text-gray-100 px-4 py-2"
+              className="text-white hover:text-gray-500 px-4 py-2"
               to="/posts"
             >
               Posts
@@ -65,7 +65,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              className="text-white hover:text-gray-100 px-4 py-2"
+              className="text-white hover:text-gray-500 px-4 py-2"
               to="/verificationRequests"
             >
               Verification requests
@@ -73,7 +73,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              className="text-white hover:text-gray-100 px-4 py-2"
+              className="text-white hover:text-gray-500 px-4 py-2"
               to="/verifiedRequests"
             >
               Verified requests
@@ -81,7 +81,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              className="text-white hover:text-gray-100 px-4 py-2"
+              className="text-white hover:text-gray-500 px-4 py-2"
               to="/feedbacks"
             >
               Feedbacks
