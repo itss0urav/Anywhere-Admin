@@ -13,17 +13,21 @@ const Login = () => {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-    const response = await axios.post(
-      "http://localhost:5000/admin/login",
-      userObj
-    );
-
-    if (response) {
-      setAdmin(response?.data);
-      localStorage.setItem("anywhere-admin", JSON.stringify(response.data));
-      navigate("/");
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/admin/login",
+        userObj
+      );
+      if (response) {
+        setAdmin(response?.data);
+        localStorage.setItem("anywhere-admin", JSON.stringify(response.data));
+        navigate("/");
+      }
+    } catch (error) {
+      alert("Invalid email or password. Please try again.");
     }
   };
+
   return (
     <div>
       <div className="relative">
