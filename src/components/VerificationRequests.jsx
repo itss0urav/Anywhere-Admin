@@ -117,8 +117,14 @@ const VerificationRequests = () => {
                           </div>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
+                          <span
+                            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                              person.isBanned
+                                ? "bg-red-200 text-red-800"
+                                : "bg-green-100 text-green-800"
+                            }`}
+                          >
+                            {person.isBanned ? "Banned" : "Active"}
                           </span>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap">

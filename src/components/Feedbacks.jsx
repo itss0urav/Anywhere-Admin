@@ -29,7 +29,7 @@ const Feedbacks = () => {
             <p>Rating : {feedback?.rating}</p>
             <button
               onClick={() => deleteFeedback(feedback._id)}
-              className="text-white bg-red-800 rounded px-3 py-1 hover:bg-red-500 "
+              className="text-white bg-red-600 rounded px-3 py-1 hover:bg-red-800 "
             >
               Delete
             </button>
