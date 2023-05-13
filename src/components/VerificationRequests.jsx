@@ -35,7 +35,7 @@ const VerificationRequests = () => {
 
   return (
     <div>
-      <section className="container px-4 mx-auto py-4">
+      <section className="container h-screen px-4 mx-auto py-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-medium text-white dark:text-white">
