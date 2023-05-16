@@ -96,7 +96,6 @@ const Users = () => {
                       >
                         Actions
                       </th>
-                     
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
