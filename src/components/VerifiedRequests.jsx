@@ -67,9 +67,6 @@ const VerifiedRequests = () => {
                       >
                         Action
                       </th>
-                      <th scope="col" className="relative py-3.5 px-4">
-                        <span className="sr-only">Edit</span>
-                      </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -85,17 +82,41 @@ const VerifiedRequests = () => {
                                 {person.fullName}
                               </div>
                               <div className="text-sm text-gray-500 dark:text-gray-300">
-                                {person.email}
+                                {person.email ? (
+                                  <div className="text-sm text-gray-900 dark:text-gray-300">
+                                    {person.email}
+                                  </div>
+                                ) : (
+                                  <div className="text-sm text-gray-900 dark:text-gray-300">
+                                    Not Provided
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="px-12 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900 dark:text-white">
-                            {person.website}
+                            {person.website ? (
+                              <div className="text-sm text-gray-900 dark:text-gray-300">
+                                {person.website}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-gray-900 dark:text-gray-300">
+                                Not Provided
+                              </div>
+                            )}
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-300">
-                            {person.company}
+                            {person.company ? (
+                              <div className="text-sm text-gray-500 dark:text-gray-300">
+                                {person.company}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-gray-500 dark:text-gray-300">
+                                Not Provided
+                              </div>
+                            )}
                           </div>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap">

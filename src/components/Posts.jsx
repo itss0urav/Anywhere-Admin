@@ -41,7 +41,14 @@ const Posts = () => {
   };
   return (
     <div className="py-5 h-screen">
-      <h5 className="ml-8 font-semibold text-2xl text-white">All posts</h5>
+      {showReportedPosts ? (
+        <h5 className="ml-8 font-semibold text-2xl text-red-600">
+          Reported Posts
+        </h5>
+      ) : (
+        <h5 className="ml-8 font-semibold text-2xl text-white">All Posts</h5>
+      )}
+
       <div className="flex justify-end px-20 relative">
         <h1
           className={`text-white border rounded-md px-2 py-1 cursor-pointer ${
