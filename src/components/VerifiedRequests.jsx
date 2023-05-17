@@ -82,6 +82,7 @@ const VerifiedRequests = () => {
                                 {person.fullName}
                               </div>
                               <div className="text-sm text-gray-500 dark:text-gray-300">
+<<<<<<< Updated upstream
                                 {person.email ? (
                                   <div className="text-sm text-gray-900 dark:text-gray-300">
                                     {person.email}
@@ -91,6 +92,9 @@ const VerifiedRequests = () => {
                                     Not Provided
                                   </div>
                                 )}
+=======
+                                {person?.email}
+>>>>>>> Stashed changes
                               </div>
                             </div>
                           </div>
