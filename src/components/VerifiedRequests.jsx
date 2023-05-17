@@ -13,12 +13,16 @@ const VerifiedRequests = () => {
     console.log(response.data);
   };
   //Function for revoking reports
-  const revokeRequests = async function (reportId) {
+  const revokeRequests = async function (reportId, userId) {
     const response = await axios.patch(`http://localhost:5000/verification`, {
       _id: reportId,
       isApproved: false,
     });
     response && getRequets();
+    await axios.patch("http://localhost:5000/user", {
+      userId,
+      isVerified: false,
+    });
   };
 
   useEffect(() => {
@@ -133,7 +137,7 @@ const VerifiedRequests = () => {
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                           <button
-                            onClick={() => revokeRequests(person._id)}
+                            onClick={() => revokeRequests(person._id, person.userId)}
                             className="px-3 py-0.5 border-red-200 border text-red-400 rounded-md hover:border-red-600  hover:bg-red-600 hover:text-white">
                             Revoke
                           </button>
