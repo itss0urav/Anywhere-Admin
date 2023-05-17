@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 h-screen">
       <nav className="relative px-8 py-4 flex justify-between items-center border-b border-gray-800">
         <Link
           to="/"
