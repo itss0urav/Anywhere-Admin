@@ -14,7 +14,7 @@ const Posts = () => {
   }
 
   async function getReportedPosts() {
-    const response = await axios.get("http://localhost:5000/report");
+    const response = await axios.get("http://localhost:5000/report/admin");
     response && setReportedPosts(response.data);
     console.log(response);
   }
