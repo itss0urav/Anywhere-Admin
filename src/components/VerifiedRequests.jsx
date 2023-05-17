@@ -12,15 +12,15 @@ const VerifiedRequests = () => {
       );
     console.log(response.data);
   };
+  //Function for revoking reports
+  const revokeRequests = async function (reportId) {
+    const response = await axios.patch(`http://localhost:5000/verification`, {
+      _id: reportId,
+      isApproved: false,
+    });
+    response && getRequets();
+  };
 
-
-const revokeRequests = async function(reportId){
-  const response = await axios.patch(`http://localhost:5000/verification`,{
-    _id:reportId,
-    isApproved:false
-  })
-response && getRequets()
-}
   useEffect(() => {
     getRequets();
   }, []);
@@ -46,34 +46,29 @@ response && getRequets()
                     <tr className="divide-x divide-gray-200">
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
+                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <span>Name & Email</span>
                       </th>
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
+                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         Website & Company Name
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         Status
                       </th>
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         Document
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         Action
                       </th>
                     </tr>
@@ -82,8 +77,7 @@ response && getRequets()
                     {requests.map((person) => (
                       <tr
                         key={person.name}
-                        className="divide-x divide-gray-200"
-                      >
+                        className="divide-x divide-gray-200">
                         <td className="py-4 px-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="ml-4">
@@ -126,23 +120,21 @@ response && getRequets()
                               person.isBanned
                                 ? "bg-red-200 text-red-800"
                                 : "bg-green-100 text-green-800"
-                            }`}
-                          >
+                            }`}>
                             {person.isBanned ? "Banned" : "Active"}
                           </span>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap">
                           <a
                             href={person.governmentId}
-                            className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                          >
+                            className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                             See document
                           </a>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                           <button
-                          onClick={() => revokeRequests(person._id)}
-                          className="px-3 py-0.5 border-red-200 border text-red-400 rounded-md hover:border-red-600  hover:bg-red-600 hover:text-white">
+                            onClick={() => revokeRequests(person._id)}
+                            className="px-3 py-0.5 border-red-200 border text-red-400 rounded-md hover:border-red-600  hover:bg-red-600 hover:text-white">
                             Revoke
                           </button>
                         </td>
