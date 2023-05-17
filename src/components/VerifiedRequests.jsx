@@ -12,6 +12,15 @@ const VerifiedRequests = () => {
       );
     console.log(response.data);
   };
+
+
+const revokeRequests = async function(reportId){
+  const response = await axios.patch(`http://localhost:5000/verification`,{
+    _id:reportId,
+    isApproved:false
+  })
+response && getRequets()
+}
   useEffect(() => {
     getRequets();
   }, []);
@@ -82,19 +91,7 @@ const VerifiedRequests = () => {
                                 {person.fullName}
                               </div>
                               <div className="text-sm text-gray-500 dark:text-gray-300">
-<<<<<<< Updated upstream
-                                {person.email ? (
-                                  <div className="text-sm text-gray-900 dark:text-gray-300">
-                                    {person.email}
-                                  </div>
-                                ) : (
-                                  <div className="text-sm text-gray-900 dark:text-gray-300">
-                                    Not Provided
-                                  </div>
-                                )}
-=======
                                 {person?.email}
->>>>>>> Stashed changes
                               </div>
                             </div>
                           </div>
@@ -143,7 +140,9 @@ const VerifiedRequests = () => {
                           </a>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          <button className="px-3 py-0.5 border-red-200 border text-red-400 rounded-md hover:border-red-600  hover:bg-red-600 hover:text-white">
+                          <button
+                          onClick={() => revokeRequests(person._id)}
+                          className="px-3 py-0.5 border-red-200 border text-red-400 rounded-md hover:border-red-600  hover:bg-red-600 hover:text-white">
                             Revoke
                           </button>
                         </td>
